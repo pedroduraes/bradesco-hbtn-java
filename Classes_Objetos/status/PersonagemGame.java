@@ -37,11 +37,21 @@ public class PersonagemGame {
 
     
     public void tomarDano(int quantidadeDeDano) {
-        this.setSaudeAtual(this.getSaudeAtual() - quantidadeDeDano);
+        if (this.getSaudeAtual() - quantidadeDeDano <= 0) {
+            this.setSaudeAtual(0);
+        } else {
+            this.setSaudeAtual(this.getSaudeAtual() - quantidadeDeDano);
+        }
+        
     }
 
     public void receberCura(int quantidadeDeCura) {
-        this.setSaudeAtual(this.getSaudeAtual() + quantidadeDeCura);
+        if (this.getSaudeAtual() + quantidadeDeCura >= 100) {
+            this.setSaudeAtual(100);
+        } else {
+            this.setSaudeAtual(this.getSaudeAtual() + quantidadeDeCura);
+        }
+        
     }
 
 }
