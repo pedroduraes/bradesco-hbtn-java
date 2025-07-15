@@ -1,4 +1,4 @@
-package Heranca_Exercicios.pedido_livraria.produtos;
+package produtos;
 public class Livro extends Produto{
 
     public Livro(String titulo, int ano, String pais, double precoBruto, int paginas, String autor, int edicao) {
