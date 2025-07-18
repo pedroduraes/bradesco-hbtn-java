@@ -68,12 +68,12 @@ public class Pedido {
             if (itemPedido.getProduto() instanceof Dvd) {
                 dvd = ((Dvd) itemPedido.getProduto());
                 total += itemPedido.getQuantidade() * dvd.obterPrecoLiquido();
-                saidaProd = String.format("Tipo: Dvd Titulo: %s Preco: %.2f Quant: %d Total: %.2f\n", dvd.getTitulo(), dvd.obterPrecoLiquido(), itemPedido.getQuantidade(), itemPedido.getQuantidade() * dvd.obterPrecoLiquido());
+                saidaProd = String.format("Tipo: Dvd  Titulo: %s  Preco: %.2f  Quant: %d  Total: %.2f\n", dvd.getTitulo(), dvd.obterPrecoLiquido(), itemPedido.getQuantidade(), itemPedido.getQuantidade() * dvd.obterPrecoLiquido());
                 valorProdutos = itemPedido.getQuantidade() * dvd.obterPrecoLiquido();;
             } else {
                 livro = ((Livro) itemPedido.getProduto());
                 total += itemPedido.getQuantidade() * livro.obterPrecoLiquido();
-                saidaProd = String.format("Tipo: Dvd Titulo: %s Preco: %.2f Quant: %d Total: %.2f\n", livro.getTitulo(), livro.obterPrecoLiquido(),itemPedido.getQuantidade() , itemPedido.getQuantidade() * livro.obterPrecoLiquido());
+                saidaProd = String.format("Tipo: Livro  Titulo: %s  Preco: %.2f  Quant: %d  Total: %.2f\n", livro.getTitulo(), livro.obterPrecoLiquido(),itemPedido.getQuantidade() , itemPedido.getQuantidade() * livro.obterPrecoLiquido());
                 valorProdutos = itemPedido.getQuantidade() * livro.obterPrecoLiquido();;
             }
             sb.append(saidaProd);
@@ -90,9 +90,7 @@ public class Pedido {
         sb.append(String.format("TOTAL PRODUTOS: %.2f\n", total));
         sb.append("----------------------------\n");
         sb.append(String.format("TOTAL PEDIDO: %.2f\n", total-descontos));
-        sb.append("----------------------------\n");
-        
-        sb.append(System.lineSeparator());
+        sb.append("----------------------------");
 
         System.out.println(sb.toString());
     }
