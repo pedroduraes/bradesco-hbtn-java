@@ -43,7 +43,7 @@ public class GerenciamentoDeContatos {
     public void buscarContato(String nome) {
         Contato item = contatos.get(nome);
         if (item != null) {
-            System.out.printf("Contato encontrado:: %s\n",nome);
+            System.out.printf("Contato encontrado: %s\n",nome);
             System.out.printf("Telefones: %s\n",item.getTelefones());
             System.out.printf("Emails: %s\n",item.getEmails());
         } else {
@@ -57,6 +57,7 @@ public class GerenciamentoDeContatos {
         Contato item = contatos.get(nome);
         if (item != null) {
             this.contatos.remove(nome);
+            System.out.printf("Contato %s removido com sucesso!\n", nome);
         } else {
             System.out.printf("Contato %s não encontrado.!\n", nome);
         }
