@@ -43,10 +43,9 @@ public class GerenciamentoDeContatos {
     public void buscarContato(String nome) {
         Contato item = contatos.get(nome);
         if (item != null) {
-            System.out.printf("Nome: %s\n",nome);
+            System.out.printf("Contato encontrado:: %s\n",nome);
             System.out.printf("Telefones: %s\n",item.getTelefones());
             System.out.printf("Emails: %s\n",item.getEmails());
-            System.out.println("-------------------------------");   
         } else {
             //System.out.printf("Erro: Contato com nome %s não existe!\n", nome);
         }
