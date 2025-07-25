@@ -24,7 +24,7 @@ public class PessoasArray {
         int low = 0;
         int high = nomes.length - 1;
         int mid=0;
-        
+
         while (low <= high) {
             mid = low + (high - low) / 2;
             int comparison = nome.compareTo(nomes[mid]); // Compare strings
@@ -41,7 +41,7 @@ public class PessoasArray {
         if (!encontrado) {
             throw new IllegalArgumentException(String.format("O nome %s não se encontra no array de nomes", nome));
         } else {
-            System.out.printf("Nome pesquisado é %s que está na posição %d\n", nome, mid);
+            System.out.printf("Nome %s encontrado na posição %d\n", nome, mid);
         }
 
 
