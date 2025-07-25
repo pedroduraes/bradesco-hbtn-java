@@ -21,10 +21,10 @@ public class PessoasArray {
     public void buscaBinaria(String nome){
         boolean encontrado = false;
         System.out.printf("Procurando pelo nome: \"%s\"\n", nome);
-
         int low = 0;
         int high = nomes.length - 1;
         int mid=0;
+        
         while (low <= high) {
             mid = low + (high - low) / 2;
             int comparison = nome.compareTo(nomes[mid]); // Compare strings
