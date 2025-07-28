@@ -63,7 +63,7 @@ public class ListaTodo {
     }
 
     public void listarTarefas() {
-        String saida = "[%s]  Id: %d - %s\n";
+        String saida = "[%s]  Id: %d - Descricao: %s\n";
         for (Tarefa item : tarefas) {
             System.out.printf(saida, (item.isEstahFeita() ? "X" : " "), item.getIdentificador(), item.getDescricao());
         }
