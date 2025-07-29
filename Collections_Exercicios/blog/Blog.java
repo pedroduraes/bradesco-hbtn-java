@@ -40,6 +40,8 @@ public class Blog {
          * daquela categoria,
          * deve-se retornar os conjuntos ordenados pelo nome da categoria
          */
+
+        //TreeMap automatically sorts entries by key in natural (ascending) order.
         Map<String, Integer> items = new TreeMap<>();
 
         for (Post item : posts) {
