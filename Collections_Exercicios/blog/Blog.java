@@ -3,6 +3,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
@@ -38,9 +39,11 @@ public class Blog {
          * daquela categoria,
          * deve-se retornar os conjuntos ordenados pelo nome da categoria
          */
-        Map<String, Integer> items = new HashMap<>();
+        Map<String, Integer> items = new LinkedHashMap<>();
 
-        for (Post item : posts) {
+        for (Post item : posts.stream().sorted((o1, o2) -> {
+            return o1.getAutor().compareTo(o2.getAutor());
+        }).collect(Collectors.toList())) {
             items.put(item.getCategoria(),
                     (int) this.posts.stream().filter(p -> p.getCategoria() == item.getCategoria()).count());
         }
