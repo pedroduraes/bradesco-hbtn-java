@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 
 public class Blog {
 
-    private ArrayList<Post> posts;
+    private List<Post> posts;
 
     public Blog() {
         this.posts = new ArrayList<>();
