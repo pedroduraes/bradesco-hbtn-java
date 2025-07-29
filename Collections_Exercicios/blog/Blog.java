@@ -8,6 +8,7 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.TreeMap;
 import java.util.stream.Collectors;
 
 public class Blog {
@@ -39,11 +40,9 @@ public class Blog {
          * daquela categoria,
          * deve-se retornar os conjuntos ordenados pelo nome da categoria
          */
-        Map<String, Integer> items = new LinkedHashMap<>();
+        Map<String, Integer> items = new TreeMap<>();
 
-        for (Post item : posts.stream().sorted((o1, o2) -> {
-            return o1.getAutor().compareTo(o2.getAutor());
-        }).collect(Collectors.toList())) {
+        for (Post item : posts) {
             items.put(item.getCategoria(),
                     (int) this.posts.stream().filter(p -> p.getCategoria() == item.getCategoria()).count());
         }
