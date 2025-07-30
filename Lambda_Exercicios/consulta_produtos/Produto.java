@@ -47,7 +47,7 @@ public class Produto {
     }
     @Override
     public String toString() {
-        return String.format("%s %.2f %.2f %d %s", this.getNome(), this.getPreco(), this.getPeso(), this.getQuantidadeEmEstoque(), this.getTipo());
+        return String.format("%s %.6f %.6f %d %s", this.getNome(), this.getPreco(), this.getPeso(), this.getQuantidadeEmEstoque(), this.getTipo());
     }
 
 }
