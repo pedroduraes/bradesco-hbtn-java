@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Consulta {
 
@@ -15,11 +16,9 @@ public class Consulta {
          * Utilize Comparator.comparing com reversed
          */
         
-         //ArrayList copy = new ArrayList (original.size());
-        //Collections.copy(copy, original);
-        ArrayList<Produto> clone = new ArrayList<>(produtos.size()-1);
+        List<Produto> clone = produtos.stream().collect(Collectors.toList());
         
-        Collections.copy(clone, produtos);
+        
 
 
          Collections.sort(clone, new Comparator<Produto>() {
@@ -28,7 +27,7 @@ public class Consulta {
                 
             }
          });
-         return clone.get(0);
+         return clone.get(clone.size()-1);
     }
     
 }
