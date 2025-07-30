@@ -38,7 +38,7 @@ public class Produto {
     }
     @Override
     public String toString() {
-        return String.format("[%d] %s %s R$ %.2f", this.getCodigo(), this.getNome(), this.getCategoria(), this.getPreco());
+        return String.format("[%d] %s %s R$ %.2f", this.getCodigo(), this.getNome(), this.getCategoria(), this.getPreco()).replace('.', ',');
     }
     
 }
