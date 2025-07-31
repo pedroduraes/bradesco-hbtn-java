@@ -58,7 +58,7 @@ public class Pessoa {
     @Override
     public String toString() {
         return String.format("[%d] %s %s %d R$ %.6f", this.getCodigo(), this.getNome(), this.getCargo(),
-                this.getIdade(), this.getSalario());
+                this.getIdade(), this.getSalario()).replace('.', ',');
     }
 
 }
