@@ -22,8 +22,16 @@ public class ConsultaPessoas {
             List<Pessoa> pessoas) {
 
         TreeMap<String, TreeSet<Pessoa>> result = new TreeMap<>(Collections.reverseOrder());
+        for (Pessoa pessoa : pessoas) {
+            if (!result.containsKey(pessoa.getCargo())) {
 
-        return pessoas.stream().collect(Collectors.groupingBy(Pessoa::getCargo,Collectors.toCollection(TreeSet::new)));
+                TreeSet<Pessoa> filtro = pessoas.stream().filter((p) -> p.getCargo().equals(pessoa.getCargo())).collect(Collectors.toCollection(TreeSet::new));
+
+                result.put(pessoa.getCargo(), filtro);
+            }
+        }
+
+        //return pessoas.stream().collect(Collectors.groupingBy(Pessoa::getCargo,Collectors.toCollection(TreeSet::new)));
 
         return result;
     }
