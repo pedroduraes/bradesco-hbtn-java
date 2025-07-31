@@ -1,6 +1,6 @@
 
-public class Pessoa {
-//xxx
+public class Pessoa  implements Comparable<Pessoa>{
+
     private int codigo;
     private String nome;
     private String cargo;
@@ -59,6 +59,11 @@ public class Pessoa {
     public String toString() {
         return String.format("[%d] %s %s %d R$ %.6f", this.getCodigo(), this.getNome(), this.getCargo(),
                 this.getIdade(), this.getSalario()).replace('.', ',');
+    }
+
+    @Override
+    public int compareTo(Pessoa arg0) {
+        return this.toString().compareTo(arg0.toString());
     }
 
 }
