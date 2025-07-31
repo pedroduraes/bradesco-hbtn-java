@@ -1,5 +1,6 @@
 import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
@@ -25,10 +26,16 @@ public class ConsultaPessoas {
         for (Pessoa pessoa : pessoas) {
             if (!result.containsKey(pessoa.getCargo())) {
 
-                TreeSet<Pessoa> filtro = pessoas.stream().filter((p) -> p.getCargo().equals(pessoa.getCargo())).collect(Collectors.toCollection(TreeSet::new));
+                //TreeSet<Pessoa> filtro = pessoas.stream().filter((p) -> p.getCargo().equals(pessoa.getCargo())).collect(Collectors.toCollection(TreeSet::new));
 
-                result.put(pessoa.getCargo(), filtro);
+
+                //static Map<String, List<Pessoa>>
+                //return  pessoas.stream().collect(Collectors.groupingBy(Pessoa::getCargo, Collectors.filtering(p -> p.getIdade() >=40, Collectors.toList()))) ;
+                Map<String, TreeSet<Pessoa>> filtro = pessoas.stream().collect(Collectors.groupingBy(Pessoa::getCargo, Collectors.filtering(p -> p.getCargo() == pessoa.getCargo(), Collectors.toCollection(TreeSet::new))));
+
+                result.put(pessoa.getCargo(), filtro.getOrDefault(pessoa.getCargo(), null));
             }
+            
         }
 
         //return pessoas.stream().collect(Collectors.groupingBy(Pessoa::getCargo,Collectors.toCollection(TreeSet::new)));
