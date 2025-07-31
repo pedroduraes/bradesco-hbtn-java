@@ -40,11 +40,12 @@ public class Consulta {
 
     }
 
-    public static List<Pedido> obterPedidosComEletronicos(List<Pedido> of) {
+    public static List<Pedido> obterPedidosComEletronicos(List<Pedido> produtos) {
         /*
          * Inclua o método estático obterPedidosComEletronicos a classe Consulta que recebe uma lista de pedidos 
          * e retorna apenas os pedidos que possuem produtos que sejam da categoria Eletronico.
          */
+        return produtos.stream().anyMatch((p) -> p.getProdutos())
     }
     
 }
