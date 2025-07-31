@@ -25,8 +25,13 @@ public class ConsultaPessoas {
          * idades de pessoas daquele cargo como valor do Map.
          * 
          * DICA: Utilizar Collectors.mapping
+         * Map<City, Set<String>> lastNamesByCity
+            = people.stream().collect(
+            groupingBy(Person::getCity,
+                mapping(Person::getLastName,
+                        toSet())));
          */
-        return pessoas.stream();
+        return pessoas.stream().collect(Collectors.groupingBy(Pessoa::getCargo, Collectors.mapping(Pessoa::getIdade, Collectors.toList())));
 
     }
 
