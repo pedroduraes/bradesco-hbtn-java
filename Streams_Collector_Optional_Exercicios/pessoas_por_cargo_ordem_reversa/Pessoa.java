@@ -63,7 +63,7 @@ public class Pessoa  implements Comparable<Pessoa>{
 
     @Override
     public int compareTo(Pessoa arg0) {
-        return this.toString().compareTo(arg0.toString());
+        return this.getNome().compareTo(arg0.getNome());
     }
 
 }
