@@ -10,12 +10,13 @@ public class Principal {
      * 
      */
 
-     public static void main(String[] args) {
+     public static void main(String[] args) throws InterruptedException {
         Contador c = new Contador();
         ThreadContador t = new ThreadContador(c);
         ThreadContador t1 = new ThreadContador(c);
         t.run();
         t1.run();
+        t.join();
         System.out.println("Valor final do contador: " + c.getContagem());
      }
 
