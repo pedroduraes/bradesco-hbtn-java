@@ -16,7 +16,7 @@ public class Principal {
         ThreadContador t1 = new ThreadContador(c);
         t.run();
         t1.run();
-        t.join();
+        t1.join();
         System.out.println("Valor final do contador: " + c.getContagem());
      }
 
