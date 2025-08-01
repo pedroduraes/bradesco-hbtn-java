@@ -38,14 +38,26 @@ public class Fila {
         O método retirar() retira um item da fila. 
             Se a fila estiver vazia, o consumidor chama wait() e aguarda até que o produtor adicione um item à fila.
        */
-      public synchronized void retirar() throws InterruptedException {
+      public synchronized int retirar() throws InterruptedException {
+        
         while (this.lista.size() == 0) {
             wait();            
         }
+      
 
-        System.out.println("removendo item da posicao 0(zero)");
-        this.lista.remove(0);
+        int index = -1;
+        for(int i =0; i < this.lista.size(); i ++) {
+          if (this.lista.get(i) != null) {
+            index = i;
+          }
+        }
+
+        System.out.println("removendo item da posicao " + index);
+        int valor = this.lista.get(index);
+        //this.lista.remove(0);
+        this.lista.set(0, null);
         notify();
+        return valor;
       }
 
 }

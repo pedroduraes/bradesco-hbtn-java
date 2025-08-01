@@ -18,8 +18,9 @@ public class Produtor extends Thread {
     public void run() {
         Random random = new Random();
         int randomNumber = random.nextInt(100) + 1; // Generates a number from 0 to 99, then adds 1 to make it 1 to 100
+        System.out.println("Produziu nº: " + randomNumber);
         try {
-            Thread.sleep(1000);// Simula o tempo para produzir um item
+            Thread.sleep(500);// Simula o tempo para produzir um item
             this.fila.adicionar(randomNumber);
         } catch (InterruptedException e) {
             e.printStackTrace();
