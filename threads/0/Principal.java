@@ -18,7 +18,7 @@ public class Principal {
         t1.run();
         t.join();
         t1.join();
-        System.out.print("Valor final do contador: " + c.getContagem());
+        System.out.println("Valor final do contador: " + c.getContagem());
      }
 
 }
