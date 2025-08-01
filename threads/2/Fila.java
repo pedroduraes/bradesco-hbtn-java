@@ -1,13 +1,15 @@
 import java.util.LinkedList;
+import java.util.stream.Collectors;
 
 public class Fila {
 
     private LinkedList<Integer> lista;
-    private int maxItems = 10;
+    private int maxItems ;
 
-    public Fila() {
+    public Fila(int maxItems) {
         lista = new LinkedList<>();
-        System.out.println("Inicializando lista com: " + lista.size());
+        this.maxItems = maxItems;
+        System.out.println("Inicializando lista com: " + maxItems);
     }
 
     /*
@@ -40,7 +42,8 @@ public class Fila {
        */
       public synchronized int retirar() throws InterruptedException {
         
-        while (this.lista.size() == 0) {
+        //while (this.lista.size() == 0) {
+          while (this.lista.stream().filter(i -> i != null).collect(Collectors.toList()).size() ==0) {
             wait();            
         }
       
@@ -54,8 +57,8 @@ public class Fila {
 
         System.out.println("removendo item da posicao " + index);
         int valor = this.lista.get(index);
-        //this.lista.remove(0);
-        this.lista.set(0, null);
+        this.lista.remove(index);
+        //this.lista.set(index, null);
         notify();
         return valor;
       }
