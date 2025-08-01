@@ -12,7 +12,10 @@ public class Principal {
 
      public static void main(String[] args) {
         Contador c = new Contador();
-        ThreadContador t = new ThreadContador();
+        ThreadContador t = new ThreadContador(c);
+        t.run();
+        t.run();
+        System.out.println("Valor final do contador: " + c.getContagem());
      }
 
 }
