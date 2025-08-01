@@ -31,6 +31,8 @@ public class Fila {
         while (this.lista.size() > this.maxItems) {
             wait();
         }
+
+        System.out.println("Tamanho da fila: " + this.lista.size());
         System.out.println("adicionando item: " + item);
         this.lista.add(item);
         notify();
