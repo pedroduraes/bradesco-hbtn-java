@@ -1,21 +1,22 @@
 
-public class Consumidor extends Thread {
 
-    private Fila fila;
+public class Consumidor extends Thread {
+    private final Fila fila;
+
     public Consumidor(Fila fila) {
         this.fila = fila;
     }
 
     @Override
     public void run() {
-        
         try {
-            int valorProcessado = fila.retirar();
-            Thread.sleep(500);// Simula o tempo para produzir um item
-            System.out.println("retirando item: " + valorProcessado);
+            while (true) {
+                int item = fila.retirar();
+                Thread.sleep(500); // Simula processamento
+            }
         } catch (InterruptedException e) {
-            e.printStackTrace();
+            System.out.println("Consumidor interrompido.");
         }
     }
-    
 }
+
